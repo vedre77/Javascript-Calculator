@@ -1,0 +1,72 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgb(0, 98, 255), rgb(144, 182, 113));
+}
+
+
+.calculator-grid {
+    background-color: black;
+    display: grid;
+    margin: 2em auto;
+    padding: 0.5em;
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center; /* otherwise, align-items would center the buttons, but not the whole content*/ 
+    min-height: fit-content;
+    width: fit-content;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 80px); /* top row is expandable */
+    
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.calculator-grid > button:hover {
+    background-color: white;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    grid-column: 1 / -1; /* this spans the output screen one whole row: 
+    same as '1 / 5'*/
+    background-color: rgba(0, 0, 0, 0.75);
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-left: .5rem;
+    padding-right: .6rem;
+    word-wrap: break-word;
+    word-break: break-all;  
+}
+
+.output .previous-operand {
+    color:rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color:rgb(255, 255, 255);
+    font-size: 2rem;
+}
